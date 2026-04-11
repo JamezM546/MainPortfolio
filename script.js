@@ -21,6 +21,25 @@ function setLink(id, url) {
   }
 }
 
+function setThemeGif(url) {
+  const image = document.getElementById("theme-gif");
+  const fallback = document.getElementById("media-fallback");
+
+  if (!image || !fallback) {
+    return;
+  }
+
+  if (url && url.trim()) {
+    image.src = url;
+    image.classList.add("is-visible");
+    fallback.classList.add("is-hidden");
+  } else {
+    image.removeAttribute("src");
+    image.classList.remove("is-visible");
+    fallback.classList.remove("is-hidden");
+  }
+}
+
 function renderStats(stats) {
   const container = document.getElementById("quick-stats");
   container.innerHTML = "";
@@ -36,30 +55,6 @@ function renderStats(stats) {
   });
 }
 
-function renderBadges(badges) {
-  const container = document.getElementById("hero-badges");
-  container.innerHTML = "";
-
-  badges.forEach((badge) => {
-    const item = document.createElement("span");
-    item.className = "hero-badge reveal";
-    item.textContent = badge;
-    container.appendChild(item);
-  });
-}
-
-function renderSignals(signals) {
-  const container = document.getElementById("signal-list");
-  container.innerHTML = "";
-
-  signals.forEach((signal) => {
-    const item = document.createElement("div");
-    item.className = "signal-item reveal";
-    item.textContent = signal;
-    container.appendChild(item);
-  });
-}
-
 function renderSkills(skills) {
   const container = document.getElementById("skills-list");
   container.innerHTML = "";
@@ -69,21 +64,6 @@ function renderSkills(skills) {
     pill.className = "skill-pill reveal";
     pill.textContent = skill;
     container.appendChild(pill);
-  });
-}
-
-function renderPrinciples(principles) {
-  const container = document.getElementById("principles-list");
-  container.innerHTML = "";
-
-  principles.forEach((principle, index) => {
-    const item = document.createElement("div");
-    item.className = "principle-item reveal";
-    item.innerHTML = `
-      <span class="principle-number">0${index + 1}</span>
-      <span>${principle}</span>
-    `;
-    container.appendChild(item);
   });
 }
 
@@ -194,10 +174,61 @@ function initReveal() {
         }
       });
     },
-    { threshold: 0.16 }
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -6% 0px"
+    }
   );
 
   targets.forEach((target) => observer.observe(target));
+}
+
+function initBackdropMotion() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    return;
+  }
+
+  const orbs = Array.from(document.querySelectorAll(".backdrop-orb"));
+  const beams = Array.from(document.querySelectorAll(".backdrop-beam"));
+
+  if (!orbs.length && !beams.length) {
+    return;
+  }
+
+  let ticking = false;
+
+  function updateMotion() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const viewportHeight = window.innerHeight || 1;
+    const progress = Math.min(scrollY / viewportHeight, 6);
+
+    orbs.forEach((orb, index) => {
+      const direction = index % 2 === 0 ? 1 : -1;
+      const y = progress * (18 + index * 6) * direction;
+      const x = progress * (8 + index * 4) * direction;
+      orb.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+
+    beams.forEach((beam, index) => {
+      const direction = index % 2 === 0 ? 1 : -1;
+      const x = progress * 24 * direction;
+      const y = progress * 10;
+      beam.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(-18deg)`;
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateMotion);
+      ticking = true;
+    }
+  }
+
+  updateMotion();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 function hydrateContent() {
@@ -208,18 +239,15 @@ function hydrateContent() {
   setLink("resume-link", content.hero.resumeUrl);
   setText("focus-title", content.hero.focusTitle);
   setText("focus-copy", content.hero.focusCopy);
+  setThemeGif(content.hero.gifUrl);
 
   setText("about-copy-1", content.about.paragraphOne);
   setText("about-copy-2", content.about.paragraphTwo);
-  setText("availability-copy", content.availability);
   setText("contact-copy", content.contact.copy);
   setText("footer-note", content.footerNote);
 
   renderStats(content.stats);
-  renderBadges(content.badges);
-  renderSignals(content.signals);
   renderSkills(content.skills);
-  renderPrinciples(content.principles);
   renderProjects(content.projects);
   renderTimeline(content.experience);
   renderContactLinks(content.contact.links);
@@ -228,3 +256,4 @@ function hydrateContent() {
 hydrateContent();
 initMenu();
 initReveal();
+initBackdropMotion();

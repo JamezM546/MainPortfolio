@@ -1,6 +1,6 @@
 # Portfolio Codename
 
-This is a static employer-friendly portfolio template with a bold, angular visual style inspired by high-energy editorial/game UI, but without using Persona names, logos, characters, fonts, or copied assets.
+This is a static employer-friendly portfolio template with a bold, angular visual style inspired by high-energy editorial design and dramatic interactive interfaces.
 
 ## Use it
 
@@ -17,8 +17,8 @@ This is a static employer-friendly portfolio template with a bold, angular visua
 
 ## Safety note
 
-This template is intentionally "inspired-by" rather than a direct recreation. To keep it employer-safe:
+This template is intentionally original in its visuals and presentation. To keep it employer-safe:
 
-- do not add Persona logos, character art, UI screenshots, or soundtrack references
-- avoid using the exact game title in the live site branding
+- do not add copyrighted logos, character art, UI screenshots, or soundtrack references
+- avoid branding it around another company's game or franchise
 - keep the content centered on your professional work, not fandom references

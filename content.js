@@ -8,7 +8,8 @@ window.PORTFOLIO_CONTENT = {
     resumeUrl: "https://example.com/resume.pdf",
     focusTitle: "Interactive work that feels distinct",
     focusCopy:
-      "I like projects where brand, UX, and implementation all matter, especially when I can turn vague ideas into memorable products."
+      "I like projects where brand, UX, and implementation all matter, especially when I can turn vague ideas into memorable products.",
+    gifUrl: "raining-city.gif"
   },
   stats: [
     { value: "5+", label: "Years Building" },
@@ -16,29 +17,12 @@ window.PORTFOLIO_CONTENT = {
     { value: "3", label: "Core Disciplines" },
     { value: "100%", label: "Customizable" }
   ],
-  badges: [
-    "User-first",
-    "Fast learner",
-    "Detail obsessed"
-  ],
-  signals: [
-    "Strong visual taste",
-    "Ships polished work",
-    "Comfortable cross-functionally"
-  ],
   about: {
     paragraphOne:
       "Write about the kind of professional you are, the environments where you do your best work, and the outcomes you tend to create. Employers should understand your strengths within a few seconds.",
     paragraphTwo:
       "Use this space to mention your specialties, tools, or perspective. Good examples: cross-functional collaboration, polished front-end execution, data storytelling, UX strategy, systems thinking, motion design, or stakeholder communication."
   },
-  principles: [
-    "Design for clarity before decoration",
-    "Make ambitious ideas usable",
-    "Communicate decisions with confidence"
-  ],
-  availability:
-    "Based in your city. Open to remote, hybrid, or relocation opportunities depending on team fit and role scope.",
   skills: [
     "UI Design",
     "Front-End Development",
@@ -120,5 +104,5 @@ window.PORTFOLIO_CONTENT = {
       { label: "GitHub", url: "https://github.com/yourname" }
     ]
   },
-  footerNote: "Built with an original high-energy visual system inspired by bold editorial UI, ready for personal customization."
+  footerNote: "Built with an original high-energy visual system for bold personal presentation, ready for customization."
 };

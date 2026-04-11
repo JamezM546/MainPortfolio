@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="page-backdrop" aria-hidden="true">
+    <div class="backdrop-orb orb-one"></div>
+    <div class="backdrop-orb orb-two"></div>
+    <div class="backdrop-beam beam-one"></div>
+    <div class="backdrop-beam beam-two"></div>
+  </div>
   <div class="page-noise" aria-hidden="true"></div>
 
   <header class="hero" id="top">
@@ -43,16 +49,25 @@
           <a class="button button-primary" id="resume-link" href="#" target="_blank" rel="noreferrer">View Resume</a>
           <a class="button button-ghost" href="#projects">See Projects</a>
         </div>
-        <div class="hero-badges" id="hero-badges"></div>
       </div>
 
       <div class="hero-aside">
-        <article class="panel portrait-card">
-          <p class="panel-label">Visual Alias</p>
-          <div class="portrait-frame" aria-hidden="true">
-            <div class="portrait-silhouette"></div>
-            <div class="portrait-slash portrait-slash-one"></div>
-            <div class="portrait-slash portrait-slash-two"></div>
+        <article class="panel media-card">
+          <p class="panel-label">Visual Loop</p>
+          <div class="media-frame" id="media-frame">
+            <img class="theme-gif" id="theme-gif" alt="Atmospheric animated visual for the portfolio">
+            <div class="media-fallback" id="media-fallback" aria-hidden="true">
+              <div class="night-sky-glow"></div>
+              <div class="moon-halo"></div>
+              <div class="haze-band"></div>
+              <div class="city-skyline skyline-back"></div>
+              <div class="city-skyline skyline-mid"></div>
+              <div class="city-skyline skyline-front"></div>
+              <div class="window-band window-band-back"></div>
+              <div class="window-band window-band-front"></div>
+              <div class="rain-layer rain-far"></div>
+              <div class="rain-layer rain-near"></div>
+            </div>
           </div>
         </article>
 
@@ -67,11 +82,6 @@
         <article class="panel stat-card">
           <p class="panel-label">Quick Stats</p>
           <div class="stats" id="quick-stats"></div>
-        </article>
-
-        <article class="panel signal-card">
-          <p class="panel-label">Signals</p>
-          <div class="signal-list" id="signal-list"></div>
         </article>
       </div>
     </section>
@@ -97,20 +107,6 @@
         <article class="panel skills-card">
           <p class="panel-label">Core Skills</p>
           <div class="skill-cloud" id="skills-list"></div>
-        </article>
-      </div>
-
-      <div class="about-extras">
-        <article class="panel principle-card">
-          <p class="panel-label">Working Principles</p>
-          <div class="principles-list" id="principles-list"></div>
-        </article>
-
-        <article class="panel availability-card">
-          <p class="panel-label">Availability</p>
-          <p id="availability-copy">
-            Add location, work preferences, relocation status, or the kinds of teams you want to join.
-          </p>
         </article>
       </div>
     </section>

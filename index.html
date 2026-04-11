@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Codename</title>
+  <meta
+    name="description"
+    content="A bold, angular portfolio template with editable personal content and employer-friendly presentation."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <nav class="topbar">
+      <a class="brand" href="#top">Portfolio Codename</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <div class="nav-links" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div class="hero-copy panel panel-main">
+        <p class="eyebrow" id="hero-status">Open To Opportunities</p>
+        <h1 id="hero-name">Your Name</h1>
+        <p class="hero-role" id="hero-role">Designer / Developer / Problem Solver</p>
+        <p class="hero-summary" id="hero-summary">
+          Add a clear two-sentence introduction that explains the kind of roles you want
+          and the value you bring.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" id="resume-link" href="#" target="_blank" rel="noreferrer">View Resume</a>
+          <a class="button button-ghost" href="#projects">See Projects</a>
+        </div>
+        <div class="hero-badges" id="hero-badges"></div>
+      </div>
+
+      <div class="hero-aside">
+        <article class="panel portrait-card">
+          <p class="panel-label">Visual Alias</p>
+          <div class="portrait-frame" aria-hidden="true">
+            <div class="portrait-silhouette"></div>
+            <div class="portrait-slash portrait-slash-one"></div>
+            <div class="portrait-slash portrait-slash-two"></div>
+          </div>
+        </article>
+
+        <article class="panel spotlight-card">
+          <p class="panel-label">Current Focus</p>
+          <h2 id="focus-title">Product-minded engineering</h2>
+          <p id="focus-copy">
+            Replace this with the kind of work you want employers to remember first.
+          </p>
+        </article>
+
+        <article class="panel stat-card">
+          <p class="panel-label">Quick Stats</p>
+          <div class="stats" id="quick-stats"></div>
+        </article>
+
+        <article class="panel signal-card">
+          <p class="panel-label">Signals</p>
+          <div class="signal-list" id="signal-list"></div>
+        </article>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="section-heading">
+        <p class="section-kicker">Profile</p>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-layout">
+        <article class="panel bio-card">
+          <p id="about-copy-1">
+            Add your main professional story here. Talk like a human, keep it concrete,
+            and focus on outcomes.
+          </p>
+          <p id="about-copy-2">
+            Use this second paragraph for specialties, working style, or industries you know well.
+          </p>
+        </article>
+
+        <article class="panel skills-card">
+          <p class="panel-label">Core Skills</p>
+          <div class="skill-cloud" id="skills-list"></div>
+        </article>
+      </div>
+
+      <div class="about-extras">
+        <article class="panel principle-card">
+          <p class="panel-label">Working Principles</p>
+          <div class="principles-list" id="principles-list"></div>
+        </article>
+
+        <article class="panel availability-card">
+          <p class="panel-label">Availability</p>
+          <p id="availability-copy">
+            Add location, work preferences, relocation status, or the kinds of teams you want to join.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <p class="section-kicker">Case Files</p>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-heading">
+        <p class="section-kicker">Track Record</p>
+        <h2>Experience Timeline</h2>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading">
+        <p class="section-kicker">Direct Line</p>
+        <h2>Let's Talk</h2>
+      </div>
+      <div class="contact-layout">
+        <article class="panel contact-card">
+          <p id="contact-copy">
+            Add a short employer-friendly CTA here. Mention what roles you're targeting and how to reach you.
+          </p>
+          <div class="contact-links" id="contact-links"></div>
+        </article>
+
+        <article class="panel checklist-card">
+          <p class="panel-label">Customization Checklist</p>
+          <ul class="checklist">
+            <li>Replace placeholder copy in <code>content.js</code></li>
+            <li>Update resume and profile links</li>
+            <li>Swap in your best 3 projects with measurable impact</li>
+            <li>Proofread tone for the jobs you want</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p id="footer-note">Built for employer-friendly sharing.</p>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

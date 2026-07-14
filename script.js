@@ -55,8 +55,12 @@ function renderStats(stats) {
   });
 }
 
-function renderSkills(skills) {
-  const container = document.getElementById("skills-list");
+function renderSkills(skills, containerId = "skills-list") {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    return;
+  }
+
   container.innerHTML = "";
 
   skills.forEach((skill) => {
@@ -64,6 +68,26 @@ function renderSkills(skills) {
     pill.className = "skill-pill reveal";
     pill.textContent = skill;
     container.appendChild(pill);
+  });
+}
+
+function renderEducation(items) {
+  const container = document.getElementById("education-grid");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = "";
+
+  items.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "panel education-card reveal";
+    article.innerHTML = `
+      <h3>${item.degree}</h3>
+      <p class="education-school"><strong>${item.school}</strong></p>
+      <p class="education-detail">${item.detail}</p>
+    `;
+    container.appendChild(article);
   });
 }
 
@@ -83,7 +107,7 @@ function renderProjects(projects) {
       .map((tool) => `<span class="chip">${tool}</span>`)
       .join("");
 
-    const links = project.links
+    const links = (project.links || [])
       .map(
         (link) =>
           `<a class="contact-link" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`
@@ -112,12 +136,21 @@ function renderTimeline(items) {
   items.forEach((item) => {
     const article = document.createElement("article");
     article.className = "timeline-item reveal";
+
+    let bodyContent = "";
+    if (item.bullets && item.bullets.length) {
+      const list = item.bullets.map((bullet) => `<li>${bullet}</li>`).join("");
+      bodyContent = `<ul class="timeline-bullets">${list}</ul>`;
+    } else if (item.description) {
+      bodyContent = `<p>${item.description}</p>`;
+    }
+
     article.innerHTML = `
       <div class="timeline-date">${item.date}</div>
       <div class="timeline-body">
         <h3>${item.title}</h3>
         <p><strong>${item.subtitle}</strong></p>
-        <p>${item.description}</p>
+        ${bodyContent}
       </div>
     `;
     container.appendChild(article);
@@ -126,7 +159,19 @@ function renderTimeline(items) {
 
 function renderContactLinks(links) {
   const container = document.getElementById("contact-links");
+  const hint = document.getElementById("contact-hint");
   container.innerHTML = "";
+
+  if (!links || !links.length) {
+    if (hint) {
+      hint.hidden = false;
+    }
+    return;
+  }
+
+  if (hint) {
+    hint.hidden = true;
+  }
 
   links.forEach((link) => {
     const anchor = document.createElement("a");
@@ -175,8 +220,8 @@ function initReveal() {
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: "0px 0px -6% 0px"
+      threshold: 0.08,
+      rootMargin: "0px 0px -4% 0px"
     }
   );
 
@@ -232,7 +277,6 @@ function initBackdropMotion() {
 }
 
 function hydrateContent() {
-  setText("hero-status", content.hero.status);
   setText("hero-name", content.hero.name);
   setText("hero-role", content.hero.role);
   setText("hero-summary", content.hero.summary);
@@ -248,6 +292,8 @@ function hydrateContent() {
 
   renderStats(content.stats);
   renderSkills(content.skills);
+  renderSkills(content.certifications || [], "certs-list");
+  renderEducation(content.education || []);
   renderProjects(content.projects);
   renderTimeline(content.experience);
   renderContactLinks(content.contact.links);

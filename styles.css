@@ -150,7 +150,7 @@ body::after {
 }
 
 .hero {
-  padding: 1.25rem 0 1rem;
+  padding: 1rem 0 0.5rem;
 }
 
 .topbar {
@@ -158,7 +158,7 @@ body::after {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .brand,
@@ -215,9 +215,9 @@ h3 {
 
 .hero-grid,
 .about-layout,
-.contact-layout {
+.education-layout {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .hero-grid {
@@ -225,19 +225,24 @@ h3 {
   align-items: start;
 }
 
+.hero-main,
 .hero-aside {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
+  align-content: start;
 }
 
 .media-card {
-  min-height: 15rem;
+  min-height: 12rem;
+}
+
+.media-card .media-frame {
+  margin-top: 0;
 }
 
 .media-frame {
   position: relative;
-  margin-top: 0.85rem;
-  min-height: 13rem;
+  min-height: 11rem;
   border: 2px solid var(--ink);
   background: linear-gradient(145deg, #0d0d10 0%, #17171d 100%);
   overflow: hidden;
@@ -471,7 +476,7 @@ h3 {
 
 .panel {
   position: relative;
-  padding: 1.35rem;
+  padding: 1.1rem 1.2rem;
   background: var(--paper);
   border: var(--border);
   box-shadow: var(--shadow);
@@ -504,10 +509,11 @@ h3 {
     linear-gradient(160deg, rgba(211, 22, 29, 0.98) 0 18%, transparent 18% 100%),
     linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
     var(--paper-strong);
-  min-height: 28rem;
+  min-height: 0;
+  padding-top: 3.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%);
 }
 
@@ -520,32 +526,33 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(4rem, 12vw, 7rem);
+  font-size: clamp(3.4rem, 10vw, 5.8rem);
   line-height: 0.9;
-  margin: 0.35rem 0 0.4rem;
+  margin: 0.25rem 0 0.35rem;
 }
 
 .hero-role {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.6vw, 1.55rem);
   font-weight: 700;
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.55rem;
   text-transform: uppercase;
 }
 
 .hero-summary,
 #focus-copy,
 #contact-copy,
-.bio-card p {
+.bio-card p,
+.education-detail {
   max-width: 60ch;
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.2rem;
+  gap: 0.75rem;
+  margin-top: 0.95rem;
 }
 
 .button {
@@ -598,6 +605,11 @@ h1 {
   transform: rotate(2deg);
 }
 
+.spotlight-card h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.35rem 0 0.45rem;
+}
+
 .stat-card {
   transform: rotate(-1.5deg);
 }
@@ -605,12 +617,12 @@ h1 {
 .stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 0.9rem;
+  gap: 0.55rem;
+  margin-top: 0.7rem;
 }
 
 .stat-item {
-  padding: 0.9rem;
+  padding: 0.7rem;
   background: var(--panel-alt);
   border: 2px solid var(--ink);
   transition: transform 180ms ease, box-shadow 180ms ease;
@@ -619,19 +631,19 @@ h1 {
 .stat-value {
   display: block;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1;
 }
 
 .stat-label {
   display: block;
-  margin-top: 0.3rem;
-  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
   font-weight: 700;
 }
 
 .section {
-  padding: 2.3rem 0 0;
+  padding: 1.5rem 0 0;
 }
 
 .section-heading {
@@ -639,18 +651,74 @@ h1 {
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 0.95;
 }
 
-.about-layout,
-.contact-layout {
+.about-layout {
   grid-template-columns: 1.2fr 0.8fr;
+}
+
+.education-layout {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+
+.education-card h3 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.education-school {
+  margin: 0.35rem 0 0;
+}
+
+.education-detail {
+  margin: 0.4rem 0 0;
+}
+
+.certs-card {
+  margin-top: 0;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section .section-heading {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.contact-card-solo {
+  max-width: 36rem;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-section .contact-links {
+  justify-content: center;
+}
+
+.contact-hint {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.72;
+}
+
+.contact-hint code {
+  font-size: 0.85em;
 }
 
 .bio-card {
@@ -665,19 +733,20 @@ h2 {
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
 }
 
 .skill-pill,
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.75rem 0.95rem;
+  gap: 0.35rem;
+  padding: 0.55rem 0.8rem;
   border: 2px solid var(--ink);
   background: #101014;
   font-weight: 700;
+  font-size: 0.92rem;
   text-decoration: none;
   color: var(--ink);
   box-shadow: 4px 4px 0 rgba(211, 22, 29, 0.9);
@@ -687,12 +756,12 @@ h2 {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .project-card {
   grid-column: span 4;
-  padding: 1.2rem;
+  padding: 1rem;
   border: var(--border);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
@@ -713,13 +782,13 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .project-title {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .project-tag {
@@ -740,8 +809,8 @@ h2 {
 .project-tools {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.9rem;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
 }
 
 .chip {
@@ -757,36 +826,37 @@ h2 {
 
 .project-links {
   display: flex;
-  gap: 0.7rem;
-  margin-top: 1rem;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
   flex-wrap: wrap;
 }
 
 .timeline {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 11rem 1fr;
-  gap: 1rem;
+  grid-template-columns: 10.5rem 1fr;
+  gap: 0.85rem;
   align-items: start;
 }
 
 .timeline-date {
-  padding: 1rem;
+  padding: 0.85rem;
   border: var(--border);
   background: var(--accent);
   color: #fff;
   box-shadow: 6px 6px 0 #000;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
 }
 
 .timeline-body {
-  padding: 1rem 1.15rem;
+  padding: 0.85rem 1rem;
   border: var(--border);
   background: var(--paper);
   box-shadow: var(--shadow);
@@ -796,21 +866,26 @@ h2 {
 
 .timeline-body h3 {
   margin: 0;
-  font-size: 1.85rem;
+  font-size: 1.55rem;
 }
 
 .timeline-body p {
-  margin: 0.55rem 0 0;
-  line-height: 1.6;
+  margin: 0.4rem 0 0;
+  line-height: 1.5;
 }
 
-.checklist {
-  padding-left: 1.1rem;
-  line-height: 1.8;
+.timeline-bullets {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  line-height: 1.5;
+}
+
+.timeline-bullets li + li {
+  margin-top: 0.35rem;
 }
 
 .footer {
-  padding: 2rem 0 3rem;
+  padding: 1.5rem 0 2rem;
   text-align: center;
   font-weight: 700;
 }
@@ -941,7 +1016,7 @@ h2 {
 @media (max-width: 960px) {
   .hero-grid,
   .about-layout,
-  .contact-layout,
+  .education-layout,
   .timeline-item {
     grid-template-columns: 1fr;
   }
@@ -983,15 +1058,20 @@ h2 {
   }
 
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .panel-main {
-    min-height: 22rem;
+    min-height: 0;
+    padding-top: 2.75rem;
   }
 
   h1 {
-    font-size: clamp(3.2rem, 20vw, 5rem);
+    font-size: clamp(2.8rem, 16vw, 4.4rem);
+  }
+
+  .section {
+    padding: 1.25rem 0 0;
   }
 }
 
